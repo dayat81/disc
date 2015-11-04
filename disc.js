@@ -20,6 +20,11 @@ function getRadioValue(theRadioGroup)
 if (Meteor.isClient) {
   // This code only runs on the client
   Session.setDefault('counter', 0);
+    Template.admin.helpers({
+    answers: function () {
+      return Answers.find();
+    }
+  });
   Template.home.helpers({
     questions: function () {
       return Questions.find({}, {sort: {num: 1}});
