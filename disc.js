@@ -28,18 +28,41 @@ if (Meteor.isClient) {
   Template.body.events({
     "submit .new": function (event) {
     	event.preventDefault();
-        //console.log("submit form"); 
+    	var m='m';
+    	var l='l';
+		var mstat = {};
+		mstat['D']=0;
+		mstat['I']=0;
+		mstat['S']=0;
+    	mstat['C']=0;
+    	mstat['B']=0;
+		var lstat = {};
+		lstat['D']=0;
+		lstat['I']=0;
+		lstat['S']=0;
+    	lstat['C']=0;
+    	lstat['B']=0;    	
+    	res= new Array();
+        for (i = 1; i < 3; i++) { 
+    		//console.log(getRadioValue(m+i));
+    		var mval=getRadioValue(m+i);
+    		var lval=getRadioValue(l+i);
+    		mstat[mval]=mstat[mval]+1;
+    		lstat[lval]=lstat[lval]+1;
+    		res.push({m:mval,l:lval});
+		}
+		var cstat={};
+		cstat['D']=mstat['D']-lstat['D'];
+		cstat['I']=mstat['I']-lstat['I'];
+		cstat['S']=mstat['S']-lstat['S'];
+		cstat['C']=mstat['C']-lstat['C'];
         var nama = event.target.nama.value;
-        var m1=getRadioValue('m1');
-        var l1=getRadioValue('l1');
-        var m2=getRadioValue('m2');
-        var l2=getRadioValue('l2');
         Answers.insert({
         nama: nama,
-        m1:m1,
-        l1:l1,
-        m2:m2,
-        l2:l2
+        res:res,
+        mstat:mstat,
+        lstat:lstat,
+        cstat:cstat
       });
       Session.set('counter', Session.get('counter') + 1);
     }
