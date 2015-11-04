@@ -1,5 +1,11 @@
 Questions = new Mongo.Collection("questions");
 Answers = new Mongo.Collection("answers");
+Router.route('/', function () {
+  this.render('home');
+});
+Router.route('/admin', function () {
+  this.render('admin');
+});
 function getRadioValue(theRadioGroup)
 {
     var elements = document.getElementsByName(theRadioGroup);
@@ -14,7 +20,7 @@ function getRadioValue(theRadioGroup)
 if (Meteor.isClient) {
   // This code only runs on the client
   Session.setDefault('counter', 0);
-  Template.body.helpers({
+  Template.home.helpers({
     questions: function () {
       return Questions.find({}, {sort: {num: 1}});
     },
@@ -25,7 +31,7 @@ if (Meteor.isClient) {
       return var1 === var2;
   }
   });
-  Template.body.events({
+  Template.home.events({
     "submit .new": function (event) {
     	event.preventDefault();
     	var m='m';
