@@ -1,0 +1,27 @@
+<head>
+  <title>disc</title>
+</head>
+
+<body>
+{{#if isEqual counter 0}}
+    <form class="new">
+    Nama: <input type="text" name="nama">
+      {{#each questions}}
+        {{> question}}
+      {{/each}}
+    <input type="submit" value="Submit">
+    </form>
+    {{else}}
+    done
+ {{/if}}   
+</body>
+<template name="question">
+<table>
+<tr><td>M</td><td align="center">
+  {{num}}</td><td>L</td>
+  </tr>
+  {{#each item}}
+  <tr><td><input name={{this.idm}} value={{this.mflag}} type="radio"></td><td>{{this.text}}</td><td><input name={{this.idl}} value={{this.lflag}} type="radio"></td></tr>
+  {{/each}}
+  </table>
+</template>
