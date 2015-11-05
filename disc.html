@@ -53,14 +53,39 @@
     </tr>
 </template>
 <template name="home">
+<script>
+function validateForm() {
+	var xnama=document.forms["myForm"]["nama"];
+    var x = xnama.value;
+    if (x == null || x == "") {
+        alert("Nama musti diisi");
+        xnama.focus();
+        return false;
+    }  
+    var m='m';
+    var l='l';
+    for (i = 1; i < 25; i++) {
+    if (document.getElementById(m+i).checked == false) {
+        alert("Kolom "+m+i+" musti diisi");
+        document.getElementById(m+i).focus();
+        return false;
+    }
+    if (document.getElementById(l+i).checked == false) {
+        alert("Kolom "+l+i+" musti diisi");
+        document.getElementById(l+i).focus();
+        return false;
+    }
+    }
+}
+</script>
 <body>
 {{#if isEqual counter 0}}
-    <form class="new">
+    <form name="myForm" class="new">
     Nama: <input type="text" name="nama"><br>
       {{#each questions}}
         {{> question}}
       {{/each}}
-    <input type="Submit" value="Submit" style="height:100%; width:100%">
+    <input type="Submit" value="Submit" style="height:100%; width:100%" onclick="return validateForm()">
     </form>
     {{else}}
     done
@@ -74,7 +99,7 @@
   {{num}}</td><td>L</td>
   </tr>
   {{#each item}}
-  <tr><td><input name={{this.idm}} value={{this.mflag}} type="radio"></td><td>{{this.text}}</td><td><input name={{this.idl}} value={{this.lflag}} type="radio"></td></tr>
+  <tr><td><input id={{this.idm}} name={{this.idm}} value={{this.mflag}} type="radio"></td><td>{{this.text}}</td><td><input id={{this.idl}} name={{this.idl}} value={{this.lflag}} type="radio"></td></tr>
   {{/each}}
   </table>
 </fieldset>
