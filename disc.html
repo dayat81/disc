@@ -3,13 +3,54 @@
 </head>
 <template name="admin">
 <body>
+    <table border=1>
+        <colgroup>
+            <col span="1">
+            <col span="5" style="background-color:red">
+            <col span="5" style="background-color:green">
+            <col span="4" style="background-color:yellow">
+        </colgroup>
+        <tr>
+            <td>Nama</td>
+            <td>M.D</td>
+            <td>M.I</td>
+            <td>M.S</td>
+            <td>M.C</td>
+            <td>M.B</td>
+            <td>L.D</td>
+            <td>L.I</td>
+            <td>L.S</td>
+            <td>L.C</td>
+            <td>L.B</td>
+            <td>C.D</td>
+            <td>C.I</td>
+            <td>C.S</td>
+            <td>C.C</td>
+        </tr>
       {{#each answers}}
         {{> answer}}
       {{/each}}
+      </table>
 </body>
 </template>
 <template name="answer">
-{{nama}}<br>
+    <tr>
+        <td>{{nama}}</td>
+        <td>{{mstat.D}}</td>
+        <td>{{mstat.I}}</td>
+        <td>{{mstat.S}}</td>
+        <td>{{mstat.C}}</td>
+        <td>{{mstat.B}}</td>
+        <td>{{lstat.D}}</td>
+        <td>{{lstat.I}}</td>
+        <td>{{lstat.S}}</td>
+        <td>{{lstat.C}}</td>
+        <td>{{lstat.B}}</td>
+        <td>{{cstat.D}}</td>
+        <td>{{cstat.I}}</td>
+        <td>{{cstat.S}}</td>
+        <td>{{cstat.C}}</td>
+    </tr>
 </template>
 <template name="home">
 <body>
@@ -27,7 +68,7 @@
 </body>
 </template>
 <template name="question">
-<table>
+<table border=1>
 <tr><td>M</td><td align="center">
   {{num}}</td><td>L</td>
   </tr>
