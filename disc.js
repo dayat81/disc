@@ -54,7 +54,7 @@ if (Meteor.isClient) {
     	lstat['C']=0;
     	lstat['B']=0;    	
     	res= new Array();
-        for (i = 1; i < 12; i++) {
+        for (i = 1; i < 25; i++) {
     		//console.log(getRadioValue(m+i));
     		var mval=getRadioValue(m+i);
     		var lval=getRadioValue(l+i);
@@ -186,6 +186,123 @@ if (Meteor.isServer) {
                                            { idm:"m11",mflag:"C",text: "Penuh dengan hal-hal kecil, detail",idl:"l11",lflag:"B"},
                                            { idm:"m11",mflag:"I",text: "Berubah pada menit-menit terakhir",idl:"l11",lflag:"I"},
                                            { idm:"m11",mflag:"D",text: "Mendesak/memaksa agak kasar",idl:"l11",lflag:"D"}
+                                           ]
+                                    },
+                                    {
+                                    num: 12,
+                                    item: [
+                                           { idm:"m12",mflag:"D",text: "Saya akan pimpin mereka",idl:"l12",lflag:"B" },
+                                           { idm:"m12",mflag:"S",text: "Saya akan ikut, mengikuti",idl:"l12",lflag:"S"},
+                                           { idm:"m12",mflag:"I",text: "Saya akan pengaruhi, bujuk mereka",idl:"l12",lflag:"I"},
+                                           { idm:"m12",mflag:"C",text: "Saya akan mendapatkan fakta-faktanya",idl:"l12",lflag:"B"}
+                                           ]
+                                    },
+                                    {
+                                    num: 13,
+                                    item: [
+                                           { idm:"m13",mflag:"I",text: "Hidup lincah banyak bicara",idl:"l13",lflag:"B" },
+                                           { idm:"m13",mflag:"D",text: "Cepat, penuh keyakinan",idl:"l13",lflag:"D"},
+                                           { idm:"m13",mflag:"S",text: "Berusaha menjaga keseimbangan",idl:"l13",lflag:"S"},
+                                           { idm:"m13",mflag:"B",text: "Berusaha patuh pada peraturan",idl:"l13",lflag:"C"}
+                                           ]
+                                    },
+                                    {
+                                    num: 14,
+                                    item: [
+                                           { idm:"m14",mflag:"D",text: "Ingin kemajuan/peningkatan",idl:"l14",lflag:"D" },
+                                           { idm:"m14",mflag:"S",text: "Puas dengan keadaan, tenang/mudah puas",idl:"l14",lflag:"B"},
+                                           { idm:"m14",mflag:"I",text: "Menunjukkan perasaan dengan terbuka",idl:"l14",lflag:"B"},
+                                           { idm:"m14",mflag:"B",text: "Rendah hati, sederhana",idl:"l14",lflag:"C"}
+                                           ]
+                                    },
+                                    {
+                                    num: 15,
+                                    item: [
+                                           { idm:"m15",mflag:"S",text: "Memikirkan orang lain dahulu",idl:"l15",lflag:"S" },
+                                           { idm:"m15",mflag:"D",text: "Suka bersaing/kompetitif, suka tantangan",idl:"l15",lflag:"D"},
+                                           { idm:"m15",mflag:"I",text: "Optimis, berpikir positif",idl:"l15",lflag:"C"},
+                                           { idm:"m15",mflag:"B",text: "Sistematis, berpikir logis",idl:"l15",lflag:"C"}
+                                           ]
+                                    },
+                                    {
+                                    num: 16,
+                                    item: [
+                                           { idm:"m16",mflag:"C",text: "Mengelola waktu dengan efisien",idl:"l16",lflag:"B" },
+                                           { idm:"m16",mflag:"D",text: "Sering terburu-buru, merasa ditekan",idl:"l16",lflag:"D"},
+                                           { idm:"m16",mflag:"I",text: "Hal-hal sosial adalah penting",idl:"l16",lflag:"I"},
+                                           { idm:"m16",mflag:"S",text: "Suka menyelesaikan hal yang sudah dimulai",idl:"l16",lflag:"S"}
+                                           ]
+                                    },
+                                    {
+                                    num: 17,
+                                    item: [
+                                           { idm:"m17",mflag:"C",text: "Tenang, pendiam, tertutup",idl:"l17",lflag:"C" },
+                                           { idm:"m17",mflag:"I",text: "Gembira, bebas, riang",idl:"l17",lflag:"I"},
+                                           { idm:"m17",mflag:"S",text: "Menyenangkan, baik hati",idl:"l17",lflag:"B"},
+                                           { idm:"m17",mflag:"D",text: "Menyolok, berani",idl:"l17",lflag:"D"}
+                                           ]
+                                    },
+                                    {
+                                    num: 18,
+                                    item: [
+                                           { idm:"m18",mflag:"S",text: "Menyenangkan orang lain, ramah, penurut",idl:"l18",lflag:"S" },
+                                           { idm:"m18",mflag:"B",text: "Tertawa lepas, hidup",idl:"l18",lflag:"I"},
+                                           { idm:"m18",mflag:"D",text: "Pemberani, tegas",idl:"l18",lflag:"D"},
+                                           { idm:"m18",mflag:"C",text: "Pendiam, tertutup, tenang",idl:"l18",lflag:"C"}
+                                           ]
+                                    },
+                                    {
+                                    num: 19,
+                                    item: [
+                                           { idm:"m19",mflag:"S",text: "Menolak perubahan yang mendadak",idl:"l19",lflag:"B" },
+                                           { idm:"m19",mflag:"I",text: "Cenderung terlalu banyak berjanji",idl:"l19",lflag:"I"},
+                                           { idm:"m19",mflag:"B",text: "Mundur apabila berada dibawah tekanan",idl:"l19",lflag:"C"},
+                                           { idm:"m19",mflag:"B",text: "Tidak takut untuk berkelahi",idl:"l19",lflag:"D"}
+                                           ]
+                                    },
+                                    {
+                                    num: 20,
+                                    item: [
+                                           { idm:"m20",mflag:"S",text: "Menyediakan waktu untuk orang lain",idl:"l20",lflag:"S" },
+                                           { idm:"m20",mflag:"C",text: "Merencanakan masa depan, bersiap-siap",idl:"l20",lflag:"B"},
+                                           { idm:"m20",mflag:"I",text: "Menuju petualangan baru",idl:"l20",lflag:"I"},
+                                           { idm:"m20",mflag:"D",text: "Menerima penghargaan atas pencapaian target",idl:"l20",lflag:"D"}
+                                           ]
+                                    },
+                                    {
+                                    num: 21,
+                                    item: [
+                                           { idm:"m21",mflag:"B",text: "Ingin wewenang, kekuasan lebih",idl:"l21",lflag:"D" },
+                                           { idm:"m21",mflag:"I",text: "Ingin kesempatan baru",idl:"l21",lflag:"B"},
+                                           { idm:"m21",mflag:"S",text: "Menghindari dari perselisihan,konfik apapun",idl:"l21",lflag:"S"},
+                                           { idm:"m21",mflag:"B",text: "Ingin arahan yang jelas",idl:"l21",lflag:"C"}
+                                           ]
+                                    },
+                                    {
+                                    num: 22,
+                                    item: [
+                                           { idm:"m22",mflag:"I",text: "Penyemangat/pendukung yang baik",idl:"l22",lflag:"I" },
+                                           { idm:"m22",mflag:"S",text: "Pendengar yang baik",idl:"l22",lflag:"S"},
+                                           { idm:"m22",mflag:"C",text: "Penganalisa yang baik",idl:"l22",lflag:"C"},
+                                           { idm:"m22",mflag:"D",text: "Pendelegasian yang baik/pandai membagi tugas",idl:"l22",lflag:"D"}
+                                           ]
+                                    },
+                                    {
+                                    num: 23,
+                                    item: [
+                                           { idm:"m23",mflag:"B",text: "Peraturan perlu diuji",idl:"l23",lflag:"D" },
+                                           { idm:"m23",mflag:"C",text: "Peraturan membuat menjadi adil",idl:"l23",lflag:"B"},
+                                           { idm:"m23",mflag:"I",text: "Peraturan membuat menjadi membosankan",idl:"l23",lflag:"I"},
+                                           { idm:"m23",mflag:"S",text: "Peraturan membuat menjadi aman",idl:"l23",lflag:"S"}
+                                           ]
+                                    },
+                                    {
+                                    num: 24,
+                                    item: [
+                                           { idm:"m24",mflag:"B",text: "Dapat dipercaya dan diandalkan",idl:"l24",lflag:"S" },
+                                           { idm:"m24",mflag:"I",text: "Kreatif, unik",idl:"l24",lflag:"I"},
+                                           { idm:"m24",mflag:"D",text: "Berorientasi pada hasil/profit/untung",idl:"l24",lflag:"B"},
+                                           { idm:"m24",mflag:"C",text: "Memegang teguh standar yang tinggi",idl:"l24",lflag:"B"}
                                            ]
                                     }
                                     ];
