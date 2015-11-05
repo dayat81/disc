@@ -65,14 +65,14 @@ function validateForm() {
     var m='m';
     var l='l';
     for (i = 1; i < 25; i++) {
-    if (document.getElementById(m+i).checked == false) {
+    if (document.getElementById(m+i+'1').checked == false&&document.getElementById(m+i+'2').checked == false&&document.getElementById(m+i+'3').checked == false&&document.getElementById(m+i+'4').checked == false) {
         alert("Kolom "+m+i+" musti diisi");
-        document.getElementById(m+i).focus();
+        document.getElementById(m+i+'1').focus();
         return false;
     }
-    if (document.getElementById(l+i).checked == false) {
+    if (document.getElementById(l+i+'1').checked == false&&document.getElementById(l+i+'2').checked == false&&document.getElementById(l+i+'3').checked == false&&document.getElementById(l+i+'4').checked == false) {
         alert("Kolom "+l+i+" musti diisi");
-        document.getElementById(l+i).focus();
+        document.getElementById(l+i+'1').focus();
         return false;
     }
     }
@@ -99,7 +99,7 @@ function validateForm() {
   {{num}}</td><td>L</td>
   </tr>
   {{#each item}}
-  <tr><td><input id={{this.idm}} name={{this.idm}} value={{this.mflag}} type="radio"></td><td>{{this.text}}</td><td><input id={{this.idl}} name={{this.idl}} value={{this.lflag}} type="radio"></td></tr>
+  <tr><td><input id={{this.rm}} name={{this.idm}} value={{this.mflag}} type="radio"></td><td>{{this.text}}</td><td><input id={{this.rl}} name={{this.idl}} value={{this.lflag}} type="radio"></td></tr>
   {{/each}}
   </table>
 </fieldset>
