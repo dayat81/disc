@@ -56,19 +56,22 @@
 <body>
 {{#if isEqual counter 0}}
     <form class="new">
-    Nama: <input type="text" name="nama">
       {{#each questions}}
         {{> question}}
       {{/each}}
+      <fieldset style="width: 370px;">
+      Nama: <input type="text" name="nama">
     <input type="submit" value="Submit">
+        </fieldset>
     </form>
     {{else}}
     done
- {{/if}}   
+ {{/if}}
 </body>
 </template>
 <template name="question">
-<table border=1>
+<fieldset style="width: 370px;">
+<table border=0>
 <tr><td>M</td><td align="center">
   {{num}}</td><td>L</td>
   </tr>
@@ -76,4 +79,5 @@
   <tr><td><input name={{this.idm}} value={{this.mflag}} type="radio"></td><td>{{this.text}}</td><td><input name={{this.idl}} value={{this.lflag}} type="radio"></td></tr>
   {{/each}}
   </table>
+</fieldset>
 </template>

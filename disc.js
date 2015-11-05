@@ -54,7 +54,7 @@ if (Meteor.isClient) {
     	lstat['C']=0;
     	lstat['B']=0;    	
     	res= new Array();
-        for (i = 1; i < 3; i++) { 
+        for (i = 1; i < 12; i++) {
     		//console.log(getRadioValue(m+i));
     		var mval=getRadioValue(m+i);
     		var lval=getRadioValue(l+i);
