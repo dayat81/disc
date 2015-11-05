@@ -83,5 +83,37 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
+                 // if there are no polls available
+        if (Questions.find().count() === 0) {
+                 
+                 // create sample polls
+                 var samplePolls = [
+                                    {
+                                    num: 1,
+                                    item: [
+                                           { idm:"m1",mflag:"S",text: "Mudah bergaul",idl:"l1",lflag:"S" },
+                                           { idm:"m1",mflag:"I",text: "Percaya",idl:"l1",lflag:"I"},
+                                           { idm:"m1",mflag:"D",text: "Petualang",idl:"l1",lflag:"D"},
+                                           { idm:"m1",mflag:"C",text: "Toleransi",idl:"l1",lflag:"C"}
+                                           ]
+                                    },
+                                    {
+                                    num: 2,
+                                    item: [
+                                           { idm:"m2",mflag:"D",text: "Hasil",idl:"l2",lflag:"D" },
+                                           { idm:"m2",mflag:"C",text: "Benar",idl:"l2",lflag:"C"},
+                                           { idm:"m2",mflag:"B",text: "Senang",idl:"l2",lflag:"I"},
+                                           { idm:"m2",mflag:"B",text: "Bersama",idl:"l2",lflag:"S"}
+                                           ]
+                                    }
+                                    ];
+                 
+                 // loop over each sample poll and insert into database
+                 _.each(samplePolls, function(poll) {
+                        Questions.insert(poll);
+                        });
+        }
+                 
   });
 }
+
