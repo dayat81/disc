@@ -1,10 +1,18 @@
 Questions = new Mongo.Collection("questions");
 Answers = new Mongo.Collection("answers");
+var id='';
 Router.route('/', function () {
   this.render('home');
 });
 Router.route('/admin', function () {
   this.render('admin');
+});
+Router.route('/chart/:_id', function () {
+  this.render('chart', {
+    data: function () {
+      return Answers.findOne({_id: this.params._id});
+    }
+  });
 });
 function getRadioValue(theRadioGroup)
 {
@@ -18,6 +26,25 @@ function getRadioValue(theRadioGroup)
     }
 }
 if (Meteor.isClient) {
+Template.chart.rendered = function(){
+    var canvas = $("#canvas1");
+    var ctx = canvas[0].getContext('2d');
+// Red rectangle
+ctx.beginPath();
+ctx.font="14px Georgia";
+ctx.fillText("Graph 1 MOST : Mask, Public Self",10,15);
+ctx.lineWidth = "1";
+ctx.strokeStyle = "black";
+ctx.rect(40, 20, 40, 20);  
+ctx.fillText("D",55,35);
+ctx.rect(83, 20, 40, 20);  
+ctx.fillText("I",100,35);
+ctx.rect(126, 20, 40, 20);  
+ctx.fillText("S",142,35);
+ctx.rect(169, 20, 40, 20);  
+ctx.fillText("C",182,35);
+ctx.stroke();
+}
   // This code only runs on the client
   Session.setDefault('counter', 0);
     Template.admin.helpers({
@@ -29,6 +56,11 @@ if (Meteor.isClient) {
   // Use this.subscribe inside onCreated callback
   this.subscribe("questions");
 });
+  Template.admin.onCreated(function () {
+  // Use this.subscribe inside onCreated callback
+  this.subscribe("anwers");
+});
+
   Template.home.helpers({
     questions: function () {
       return Questions.find({}, {sort: {num: 1}});

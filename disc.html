@@ -3,6 +3,7 @@
 </head>
 <template name="admin">
 <body>
+{{#if Template.subscriptionsReady}}
     <table border=1>
         <colgroup>
             <col span="2">
@@ -32,11 +33,14 @@
         {{> answer}}
       {{/each}}
       </table>
+            {{else}}
+    Loading...
+  {{/if}}
 </body>
 </template>
 <template name="answer">
     <tr>
-        <td>{{nama}}</td>
+        <td><a href="/chart/{{_id}}" target="_blank">{{nama}}</a></td>
         <td>{{createdAt}}</td>
         <td>{{mstat.D}}</td>
         <td>{{mstat.I}}</td>
@@ -109,4 +113,12 @@ function validateForm() {
   {{/each}}
   </table>
 </fieldset>
+</template>
+<template name="chart">
+<body>
+Nama : {{nama}}<br>
+  <div class="container">
+    <canvas id="canvas1" width="1250" height="600" style="border:1px solid #d3d3d3;">Your browser does not support HTML5 Canvas. Please update your browser to the latest version.</canvas>
+  </div>
+  </body>
 </template>
