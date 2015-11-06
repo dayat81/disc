@@ -43,6 +43,80 @@ ctx.rect(126, 20, 40, 20);
 ctx.fillText("S",142,35);
 ctx.rect(169, 20, 40, 20);  
 ctx.fillText("C",182,35);
+ctx.rect(40, 42, 40, 550); 
+ctx.rect(83, 42, 40, 550); 
+ctx.rect(126, 42, 40, 550); 
+ctx.rect(169, 42, 40, 550); 
+ctx.moveTo(40,310);
+ctx.lineTo(210,310);
+ctx.fillText("21",50,55);
+ctx.fillText("16",50,70);
+ctx.fillText("15",50,85);
+ctx.fillText("19",95,55);
+ctx.fillText("11",95,70);
+ctx.fillText("9",95,95);
+ctx.fillText("20",135,55);
+ctx.fillText("14",135,85);
+ctx.fillText("21",180,55);
+ctx.fillText("16",180,70);
+ctx.fillText("15",180,85);
+
+ctx.fillText("14",50,145);
+ctx.fillText("13",50,160);
+ctx.fillText("8",95,130);
+ctx.fillText("7",95,145);
+ctx.fillText("12",135,130);
+ctx.fillText("10",135,160);
+ctx.fillText("9",180,115);
+ctx.fillText("8",180,130);
+ctx.fillText("7",180,145);
+
+ctx.fillText("12",50,180);
+ctx.fillText("11",50,194);
+ctx.fillText("10",50,208);
+ctx.fillText("9",50,235);
+ctx.fillText("6",95,194);
+ctx.fillText("5",95,208);
+ctx.fillText("9",135,180);
+ctx.fillText("8",135,208);
+ctx.fillText("7",135,220);
+ctx.fillText("6",180,208);
+ctx.fillText("5",180,235);
+
+ctx.fillText("8",50,280);
+ctx.fillText("7",50,295);
+ctx.fillText("4",95,280);
+ctx.fillText("6",135,280);
+ctx.fillText("5",135,295);
+ctx.fillText("4",180,280);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.font="18px Georgia";
+ctx.fillText("8",215,58);
+ctx.fillText("6",215,115);
+ctx.fillText("4",215,185);
+ctx.fillText("2",215,255);
+ctx.fillText("0",215,320);
+ctx.fillText("-2",215,390);
+ctx.fillText("-4",215,465);
+ctx.fillText("-6",215,540);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.setLineDash([2,3]);
+ctx.moveTo(40,100);
+ctx.lineTo(210,100);
+ctx.moveTo(40,170);
+ctx.lineTo(210,170);
+ctx.moveTo(40,240);
+ctx.lineTo(210,240);
+ctx.moveTo(40,380);
+ctx.lineTo(210,380);
+ctx.moveTo(40,450);
+ctx.lineTo(210,450);
+ctx.moveTo(40,520);
+ctx.lineTo(210,520);
 ctx.stroke();
 }
   // This code only runs on the client
@@ -60,7 +134,6 @@ ctx.stroke();
   // Use this.subscribe inside onCreated callback
   this.subscribe("anwers");
 });
-
   Template.home.helpers({
     questions: function () {
       return Questions.find({}, {sort: {num: 1}});
