@@ -320,8 +320,10 @@ ctx.stroke();
 		cstat['S']=mstat['S']-lstat['S'];
 		cstat['C']=mstat['C']-lstat['C'];
         var nama = event.target.nama.value;
+        var email=event.target.email.value;
         Answers.insert({
         nama: nama,
+        email:email,
         res:res,
         mstat:mstat,
         lstat:lstat,

@@ -6,13 +6,14 @@
 {{#if Template.subscriptionsReady}}
     <table border=1>
         <colgroup>
-            <col span="2">
+            <col span="3">
             <col span="5" style="background-color:red">
             <col span="5" style="background-color:green">
             <col span="4" style="background-color:yellow">
         </colgroup>
         <tr>
             <td>Nama</td>
+            <td>Email</td>
             <td>Tanggal Test</td>
             <td>M.D</td>
             <td>M.I</td>
@@ -41,6 +42,7 @@
 <template name="answer">
     <tr>
         <td><a href="/chart/{{mstat.D}},{{mstat.I}},{{mstat.S}},{{mstat.C}}/{{lstat.D}},{{lstat.I}},{{lstat.S}},{{lstat.C}}/{{cstat.D}},{{cstat.I}},{{cstat.S}},{{cstat.C}}" target="_blank">{{nama}}</a></td>
+        <td>{{email}}</td>
         <td>{{createdAt}}</td>
         <td>{{mstat.D}}</td>
         <td>{{mstat.I}}</td>
@@ -68,6 +70,13 @@ function validateForm() {
         xnama.focus();
         return false;
     }  
+    var xemail=document.forms["myForm"]["email"];
+    var xe = xemail.value;
+    if (xe == null || xe == "") {
+        alert("email musti diisi");
+        xemail.focus();
+        return false;
+    } 
     var m='m';
     var l='l';
     for (i = 1; i < 25; i++) {
@@ -89,6 +98,7 @@ function validateForm() {
 {{#if Template.subscriptionsReady}}
     <form name="myForm" class="new">
     Nama: <input type="text" name="nama"><br>
+    Email: <input type="text" name="email"><br>
       {{#each questions}}
         {{> question}}
       {{/each}}
