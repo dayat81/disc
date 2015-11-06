@@ -5,13 +5,14 @@
 <body>
     <table border=1>
         <colgroup>
-            <col span="1">
+            <col span="2">
             <col span="5" style="background-color:red">
             <col span="5" style="background-color:green">
             <col span="4" style="background-color:yellow">
         </colgroup>
         <tr>
             <td>Nama</td>
+            <td>Tanggal Test</td>
             <td>M.D</td>
             <td>M.I</td>
             <td>M.S</td>
@@ -36,6 +37,7 @@
 <template name="answer">
     <tr>
         <td>{{nama}}</td>
+        <td>{{createdAt}}</td>
         <td>{{mstat.D}}</td>
         <td>{{mstat.I}}</td>
         <td>{{mstat.S}}</td>
@@ -80,6 +82,7 @@ function validateForm() {
 </script>
 <body>
 {{#if isEqual counter 0}}
+{{#if Template.subscriptionsReady}}
     <form name="myForm" class="new">
     Nama: <input type="text" name="nama"><br>
       {{#each questions}}
@@ -87,6 +90,9 @@ function validateForm() {
       {{/each}}
     <input type="Submit" value="Submit" style="height:100%; width:100%" onclick="return validateForm()">
     </form>
+      {{else}}
+    Loading...
+  {{/if}}
     {{else}}
     done
  {{/if}}

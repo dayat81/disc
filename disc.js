@@ -25,6 +25,10 @@ if (Meteor.isClient) {
       return Answers.find();
     }
   });
+  Template.home.onCreated(function () {
+  // Use this.subscribe inside onCreated callback
+  this.subscribe("questions");
+});
   Template.home.helpers({
     questions: function () {
       return Questions.find({}, {sort: {num: 1}});
