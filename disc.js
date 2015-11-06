@@ -1,6 +1,5 @@
 Questions = new Mongo.Collection("questions");
 Answers = new Mongo.Collection("answers");
-var id='';
 Router.route('/', function () {
   this.render('home');
 });
@@ -89,6 +88,30 @@ ctx.fillText("4",95,280);
 ctx.fillText("6",135,280);
 ctx.fillText("5",135,295);
 ctx.fillText("4",180,280);
+
+ctx.fillText("6",50,325);
+ctx.fillText("5",50,355);
+ctx.fillText("4",50,370);
+ctx.fillText("3",95,355);
+ctx.fillText("4",135,340);
+ctx.fillText("3",135,370);
+ctx.fillText("3",180,370);
+
+ctx.fillText("3",50,400);
+ctx.fillText("2",95,400);
+ctx.fillText("2",135,430);
+ctx.fillText("2",180,430);
+
+ctx.fillText("1",50,480);
+ctx.fillText("1",95,465);
+ctx.fillText("1",135,465);
+ctx.fillText("0",135,510);
+ctx.fillText("1",180,465);
+
+ctx.fillText("0",50,535);
+ctx.fillText("0",95,565);
+ctx.fillText("0",180,535);
+
 ctx.stroke();
 
 ctx.beginPath();
