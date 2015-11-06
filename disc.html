@@ -40,7 +40,7 @@
 </template>
 <template name="answer">
     <tr>
-        <td><a href="/chart/{{_id}}" target="_blank">{{nama}}</a></td>
+        <td><a href="/chart/{{mstat.D}},{{mstat.I}},{{mstat.S}},{{mstat.C}}/{{lstat.D}},{{lstat.I}},{{lstat.S}},{{lstat.C}}/{{cstat.D}},{{cstat.I}},{{cstat.S}},{{cstat.C}}" target="_blank">{{nama}}</a></td>
         <td>{{createdAt}}</td>
         <td>{{mstat.D}}</td>
         <td>{{mstat.I}}</td>
@@ -116,7 +116,6 @@ function validateForm() {
 </template>
 <template name="chart">
 <body>
-Nama : {{nama}} <br>
   <div class="container">
     <canvas id="canvas1" width="1250" height="600" style="border:1px solid #d3d3d3;">Your browser does not support HTML5 Canvas. Please update your browser to the latest version.</canvas>
   </div>

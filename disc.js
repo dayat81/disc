@@ -6,12 +6,8 @@ Router.route('/', function () {
 Router.route('/admin', function () {
   this.render('admin');
 });
-Router.route('/chart/:_id', function () {
-  this.render('chart', {
-    data: function () {
-      return Answers.findOne({_id: this.params._id});
-    }
-  });
+Router.route('/chart/:_ms/:_ls/:_cs', function () {
+  this.render('chart');
 });
 function getRadioValue(theRadioGroup)
 {
@@ -26,8 +22,131 @@ function getRadioValue(theRadioGroup)
 }
 if (Meteor.isClient) {
 Template.chart.rendered = function(){
+var resm = Router.current().params._ms.split(",");
+var resl = Router.current().params._ls.split(",");
+var resc = Router.current().params._cs.split(",");
+var mdx = 50;
+var mdy = {};
+var mix = 95;
+var miy = {};
+var msx = 135;
+var msy = {};
+var mcx = 180;
+var mcy = {};
+mdy['24']=55;
+mdy['23']=55;
+mdy['23']=55;
+mdy['21']=55;
+mdy['20']=70;
+mdy['19']=70;
+mdy['18']=70;
+mdy['17']=70;
+mdy['16']=70;
+mdy['15']=85;
+mdy['14']=145;
+mdy['13']=160;
+mdy['12']=180;
+mdy['11']=194;
+mdy['10']=208;
+mdy['9']=235;
+mdy['8']=280;
+mdy['7']=295;
+mdy['6']=325;
+mdy['5']=355;
+mdy['4']=370;
+mdy['3']=400;
+mdy['2']=480;
+mdy['1']=480;
+mdy['0']=535;
+
+miy['24']=55;
+miy['23']=55;
+miy['22']=55;
+miy['21']=55;
+miy['20']=55;
+miy['19']=55;
+miy['18']=70;
+miy['17']=70;
+miy['16']=70;
+miy['15']=70;
+miy['14']=70;
+miy['13']=70;
+miy['12']=70;
+miy['11']=70;
+miy['10']=95;
+miy['9']=95;
+miy['8']=130;
+miy['7']=145;
+miy['6']=194;
+miy['5']=208;
+miy['4']=280;
+miy['3']=355;
+miy['2']=400;
+miy['1']=465;
+miy['0']=565;
+
+msy['24']=55;
+msy['23']=55;
+msy['22']=55;
+msy['21']=55;
+msy['20']=55;
+msy['19']=85;
+msy['18']=85;
+msy['17']=85;
+msy['16']=85;
+msy['15']=85;
+msy['14']=85;
+msy['13']=130;
+msy['12']=130;
+msy['11']=160;
+msy['10']=160;
+msy['9']=180;
+msy['8']=208;
+msy['7']=220;
+msy['6']=280;
+msy['5']=295;
+msy['4']=340;
+msy['3']=370;
+msy['2']=430;
+msy['1']=465;
+msy['0']=510;
+
+mcy['24']=55;
+mcy['23']=55;
+mcy['22']=55;
+mcy['21']=55;
+mcy['20']=55;
+mcy['19']=55;
+mcy['18']=55;
+mcy['17']=55;
+mcy['16']=70;
+mcy['15']=70;
+mcy['14']=70;
+mcy['13']=70;
+mcy['12']=85;
+mcy['11']=85;
+mcy['10']=115;
+mcy['9']=115;
+mcy['8']=130;
+mcy['7']=145;
+mcy['6']=208;
+mcy['5']=235;
+mcy['4']=280;
+mcy['3']=370;
+mcy['2']=430;
+mcy['1']=465;
+mcy['0']=535;
+
     var canvas = $("#canvas1");
     var ctx = canvas[0].getContext('2d');
+ctx.beginPath();  
+ctx.strokeStyle = "red";  
+ctx.lineWidth = "2";
+ctx.moveTo(mdx,mdy[resm[0]]);
+ctx.lineTo(mix,miy[resm[1]]);
+ctx.lineTo(msx,msy[resm[2]]);
+ctx.lineTo(mcx,mcy[resm[3]]);
+ctx.stroke();
 // Red rectangle
 ctx.beginPath();
 ctx.font="14px Georgia";
@@ -48,69 +167,70 @@ ctx.rect(126, 42, 40, 550);
 ctx.rect(169, 42, 40, 550); 
 ctx.moveTo(40,310);
 ctx.lineTo(210,310);
-ctx.fillText("21",50,55);
-ctx.fillText("16",50,70);
-ctx.fillText("15",50,85);
-ctx.fillText("19",95,55);
-ctx.fillText("11",95,70);
-ctx.fillText("9",95,95);
-ctx.fillText("20",135,55);
-ctx.fillText("14",135,85);
-ctx.fillText("21",180,55);
-ctx.fillText("16",180,70);
-ctx.fillText("15",180,85);
 
-ctx.fillText("14",50,145);
-ctx.fillText("13",50,160);
-ctx.fillText("8",95,130);
-ctx.fillText("7",95,145);
-ctx.fillText("12",135,130);
-ctx.fillText("10",135,160);
-ctx.fillText("9",180,115);
-ctx.fillText("8",180,130);
-ctx.fillText("7",180,145);
+ctx.fillText("21",mdx,mdy['21']);
+ctx.fillText("16",mdx,mdy['16']);
+ctx.fillText("15",mdx,mdy['15']);
+ctx.fillText("19",mix,miy['19']);
+ctx.fillText("11",mix,miy['11']);
+ctx.fillText("9",mix,miy['9']);
+ctx.fillText("20",msx,msy['20']);
+ctx.fillText("14",msx,msy['14']);
+ctx.fillText("17",mcx,mcy['17']);
+ctx.fillText("13",mcx,mcy['13']);
+ctx.fillText("11",mcx,mcy['11']);
 
-ctx.fillText("12",50,180);
-ctx.fillText("11",50,194);
-ctx.fillText("10",50,208);
-ctx.fillText("9",50,235);
-ctx.fillText("6",95,194);
-ctx.fillText("5",95,208);
-ctx.fillText("9",135,180);
-ctx.fillText("8",135,208);
-ctx.fillText("7",135,220);
-ctx.fillText("6",180,208);
-ctx.fillText("5",180,235);
+ctx.fillText("14",mdx,mdy['14']);
+ctx.fillText("13",mdx,mdy['13']);
+ctx.fillText("8",mix,miy['8']);
+ctx.fillText("7",mix,miy['7']);
+ctx.fillText("12",msx,msy['12']);
+ctx.fillText("10",msx,msy['10']);
+ctx.fillText("9",mcx,mcy['9']);
+ctx.fillText("8",mcx,mcy['8']);
+ctx.fillText("7",mcx,mcy['7']);
 
-ctx.fillText("8",50,280);
-ctx.fillText("7",50,295);
-ctx.fillText("4",95,280);
-ctx.fillText("6",135,280);
-ctx.fillText("5",135,295);
-ctx.fillText("4",180,280);
+ctx.fillText("12",mdx,mdy['12']);
+ctx.fillText("11",mdx,mdy['11']);
+ctx.fillText("10",mdx,mdy['10']);
+ctx.fillText("9",mdx,mdy['9']);
+ctx.fillText("6",mix,miy['6']);
+ctx.fillText("5",mix,miy['5']);
+ctx.fillText("9",msx,msy['9']);
+ctx.fillText("8",msx,msy['8']);
+ctx.fillText("7",msx,msy['7']);
+ctx.fillText("6",mcx,mcy['6']);
+ctx.fillText("5",mcx,mcy['5']);
 
-ctx.fillText("6",50,325);
-ctx.fillText("5",50,355);
-ctx.fillText("4",50,370);
-ctx.fillText("3",95,355);
-ctx.fillText("4",135,340);
-ctx.fillText("3",135,370);
-ctx.fillText("3",180,370);
+ctx.fillText("8",mdx,mdy['8']);
+ctx.fillText("7",mdx,mdy['7']);
+ctx.fillText("4",mix,miy['4']);
+ctx.fillText("6",msx,msy['6']);
+ctx.fillText("5",msx,msy['5']);
+ctx.fillText("4",mcx,mcy['4']);
 
-ctx.fillText("3",50,400);
-ctx.fillText("2",95,400);
-ctx.fillText("2",135,430);
-ctx.fillText("2",180,430);
+ctx.fillText("6",mdx,mdy['6']);
+ctx.fillText("5",mdx,mdy['5']);
+ctx.fillText("4",mdx,mdy['4']);
+ctx.fillText("3",mix,miy['3']);
+ctx.fillText("4",msx,msy['4']);
+ctx.fillText("3",msx,msy['3']);
+ctx.fillText("3",mcx,mcy['3']);
 
-ctx.fillText("1",50,480);
-ctx.fillText("1",95,465);
-ctx.fillText("1",135,465);
-ctx.fillText("0",135,510);
-ctx.fillText("1",180,465);
+ctx.fillText("3",mdx,mdy['3']);
+ctx.fillText("2",mix,miy['2']);
+ctx.fillText("2",msx,msy['2']);
+ctx.fillText("2",mcx,mcy['2']);
 
-ctx.fillText("0",50,535);
-ctx.fillText("0",95,565);
-ctx.fillText("0",180,535);
+ctx.fillText("1",mdx,mdy['1']);
+ctx.fillText("1",mix,miy['1']);
+ctx.fillText("1",msx,msy['1']);
+ctx.fillText("0",msx,msy['0']);
+ctx.fillText("1",mcx,mcy['1']);
+
+ctx.fillText("0",mdx,mdy['0']);
+ctx.fillText("0",mix,miy['0']);
+ctx.fillText("0",mcx,mcy['0']);
 
 ctx.stroke();
 
