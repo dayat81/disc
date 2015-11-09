@@ -21,6 +21,39 @@ function getRadioValue(theRadioGroup)
     }
 }
 function drawCGraph(ctx,resc){
+    var mdx = 650;
+    var mdy = {};
+    var mix = 695;
+    var miy = {};
+    var msx = 735;
+    var msy = {};
+    var mcx = 780;
+    var mcy = {};
+    mdy['24']=45;
+    mdy['23']=50;
+    mdy['23']=50;
+    mdy['21']=55;
+    mdy['20']=65;
+    mdy['19']=50;
+    mdy['18']=70;
+    mdy['17']=70;
+    mdy['16']=70;
+    mdy['15']=82;
+    mdy['14']=95;
+    mdy['13']=160;
+    mdy['12']=180;
+    mdy['11']=194;
+    mdy['10']=208;
+    mdy['9']=235;
+    mdy['8']=280;
+    mdy['7']=295;
+    mdy['6']=325;
+    mdy['5']=355;
+    mdy['4']=370;
+    mdy['3']=400;
+    mdy['2']=480;
+    mdy['1']=480;
+    mdy['0']=535;
     // Red rectangle
     ctx.beginPath();
     ctx.restore();
@@ -42,6 +75,51 @@ function drawCGraph(ctx,resc){
     ctx.rect(769, 42, 40, 550);
     ctx.moveTo(640,310);
     ctx.lineTo(810,310);
+    
+    ctx.fillText("21",mdx,mdy['21']);
+    ctx.fillText("18",mdx,mdy['18']);
+    ctx.fillText("15",mdx,mdy['15']);
+    ctx.fillText("14",mdx,mdy['14']);
+    
+    ctx.stroke();
+  
+    ctx.beginPath();
+    ctx.font="18px Georgia";
+    ctx.fillText("8",815,58);
+    ctx.fillText("6",815,115);
+    ctx.fillText("4",815,185);
+    ctx.fillText("2",815,255);
+    ctx.fillText("0",815,320);
+    ctx.fillText("-2",815,390);
+    ctx.fillText("-4",815,465);
+    ctx.fillText("-6",815,540);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.save();
+    ctx.setLineDash([2,3]);
+    ctx.moveTo(640,100);
+    ctx.lineTo(810,100);
+    ctx.moveTo(640,170);
+    ctx.lineTo(810,170);
+    ctx.moveTo(640,240);
+    ctx.lineTo(810,240);
+    ctx.moveTo(640,380);
+    ctx.lineTo(810,380);
+    ctx.moveTo(640,450);
+    ctx.lineTo(810,450);
+    ctx.moveTo(640,520);
+    ctx.lineTo(810,520);
+    ctx.stroke();
+    
+    ctx.restore();
+    ctx.beginPath();
+    ctx.strokeStyle = "yellow";
+    ctx.lineWidth = "2";
+    ctx.moveTo(mdx,mdy[resc[0]]);
+    ctx.lineTo(mix,miy[resc[1]]);
+    ctx.lineTo(msx,msy[resc[2]]);
+    ctx.lineTo(mcx,mcy[resc[3]]);
     ctx.stroke();
 }
 function drawLGraph(ctx,resl){
