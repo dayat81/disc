@@ -41,7 +41,7 @@
 </template>
 <template name="answer">
     <tr>
-        <td><a href="/chart/{{nama}}/{{mstat.D}},{{mstat.I}},{{mstat.S}},{{mstat.C}}/{{lstat.D}},{{lstat.I}},{{lstat.S}},{{lstat.C}}/{{cstat.D}},{{cstat.I}},{{cstat.S}},{{cstat.C}}" target="_blank">{{nama}}</a></td>
+        <td><a href="/chart/{{nama}}/{{mstat.D}},{{mstat.I}},{{mstat.S}},{{mstat.C}},{{mstat.B}}/{{lstat.D}},{{lstat.I}},{{lstat.S}},{{lstat.C}},{{lstat.B}}/{{cstat.D}},{{cstat.I}},{{cstat.S}},{{cstat.C}}" target="_blank">{{nama}}</a></td>
         <td>{{email}}</td>
         <td>{{createdAt}}</td>
         <td>{{mstat.D}}</td>
@@ -126,7 +126,37 @@ function validateForm() {
 </template>
 <template name="chart">
 <body>
-    Nama : {{nama}}
+    Nama : {{nama}}<br>
+    <table border=1>
+        <tr>
+            <td></td><td>D</td><td>I</td><td>S</td><td>C</td><td>B</td>
+            </tr>
+        <tr>
+            <td>MOST</td>
+    {{#each mosts}}
+    <td>
+    {{this}}
+    </td>
+    {{/each}}
+    </tr>
+        <tr>
+            <td>LEAST</td>
+            {{#each lesss}}
+            <td>
+                {{this}}
+            </td>
+            {{/each}}
+        </tr>
+        <tr>
+            <td>CHANGE</td>
+            {{#each changess}}
+            <td>
+                {{this}}
+            </td>
+            {{/each}}
+            <td bgcolor="black"></td>
+        </tr>
+    </table>
   <div class="container">
     <canvas id="canvas1" width="1250" height="600" style="border:1px solid #d3d3d3;">Your browser does not support HTML5 Canvas. Please update your browser to the latest version.</canvas>
   </div>

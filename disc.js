@@ -40,20 +40,20 @@ function drawCGraph(ctx,resc){
     mdy['16']=70;
     mdy['15']=82;
     mdy['14']=95;
-    mdy['13']=160;
-    mdy['12']=180;
-    mdy['11']=194;
-    mdy['10']=208;
-    mdy['9']=235;
-    mdy['8']=280;
-    mdy['7']=295;
-    mdy['6']=325;
-    mdy['5']=355;
-    mdy['4']=370;
-    mdy['3']=400;
-    mdy['2']=480;
-    mdy['1']=480;
-    mdy['0']=535;
+    mdy['13']=120;
+    mdy['12']=135;
+    mdy['11']=145;
+    mdy['10']=150;
+    mdy['9']=180;
+    mdy['8']=195;
+    mdy['7']=225;
+    mdy['6']=225;
+    mdy['5']=265;
+    mdy['4']=270;
+    mdy['3']=280;
+    mdy['2']=290;
+    mdy['1']=295;
+    mdy['0']=300;
     // Red rectangle
     ctx.beginPath();
     ctx.restore();
@@ -80,6 +80,15 @@ function drawCGraph(ctx,resc){
     ctx.fillText("18",mdx,mdy['18']);
     ctx.fillText("15",mdx,mdy['15']);
     ctx.fillText("14",mdx,mdy['14']);
+    ctx.fillText("13",mdx,mdy['13']);
+    ctx.fillText("12",mdx,mdy['12']);
+    ctx.fillText("10",mdx,mdy['10']);
+    ctx.fillText("9",mdx,mdy['9']);
+    ctx.fillText("8",mdx,mdy['8']);
+    ctx.fillText("7",mdx,mdy['7']);
+    ctx.fillText("5",mdx,mdy['5']);
+    ctx.fillText("3",mdx,mdy['3']);
+    ctx.fillText("1",mdx,mdy['1']);
     
     ctx.stroke();
   
@@ -607,7 +616,16 @@ if (Meteor.isClient) {
     Template.chart.helpers({
        nama:function(){
             return Router.current().params._nama;
-       }
+       },
+       mosts:function(){
+            return Router.current().params._ms.split(",");
+       },
+       lesss:function(){
+       return Router.current().params._ls.split(",");
+       },
+       changess:function(){
+       return Router.current().params._cs.split(",");
+       },
     });
 Template.chart.rendered = function(){
     var resm = Router.current().params._ms.split(",");
